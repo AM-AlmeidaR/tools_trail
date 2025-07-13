@@ -1,7 +1,0 @@
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('herramienta/asignar/<int:herramienta_id>/', views.asignar_herramienta, name='asignar_herramienta'),
-    path('herramienta/devolver/<int:herramienta_id>/', views.devolver_herramienta, name='devolver_herramienta'),
-]
