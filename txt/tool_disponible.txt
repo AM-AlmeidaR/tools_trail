@@ -1,7 +1,0 @@
->>> agregar a views.py
-
-def herramientas_disponibles(request):
-    herramientas = Herramienta.objects.filter(disponible=True)
-    return render(request, 'herramientas_disponibles.html', {'herramientas': herramientas})
-
-
