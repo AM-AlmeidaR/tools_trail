@@ -1,5 +1,0 @@
->>> agregar a views.py
-
-def herramientas_asignadas(request):
-    registros = Registro.objects.filter(fecha_devolucion__isnull=True).select_related('herramienta', 'operario')
-    return render(request, 'herramientas_asignadas.html', {'registros': registros})
