@@ -1,7 +1,0 @@
-<h1>Asignar Herramienta: {{ herramienta.codigo }}</h1>
-<form method="post">
-    {% csrf_token %}
-    <label for="operario_codigo">Código del Operario:</label>
-    <input type="text" name="operario_codigo" id="operario_codigo" required>
-    <button type="submit">Asignar</button>
-</form>
