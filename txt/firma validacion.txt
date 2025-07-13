@@ -1,5 +1,0 @@
-# código para verificar si la firma es válida
-
-if not signature_data or ';base64,' not in signature_data:
-    messages.error(request, "La firma del operario es obligatoria para asignar la herramienta.")
-    return redirect("asignar_herramienta")
