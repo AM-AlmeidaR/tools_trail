@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<body>
+    {% block page_title%}<h1>Tools Trail | Asignar Herramientas</h1>{% endblock page_title%}
+
+    <script src="{% static 'js/signature_pad.min.js' %}"></script>
+
+    {% block page_content %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li style="color: {{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Por favor, complete los siguientes campos:</p>
+        <p>
+            <label for="codigo_herramienta">Código de la Herramienta:</label>
+            <input type="text" name="codigo_herramienta" id="codigo_herramienta" required>
+        </p> 
+        <p>   
+            <label for="operario_id">Operario:</label>
+            <select name="operario_id" id="operario_id" required>
+                    <option value="" disabled selected>Seleccione un operario</option>
+                    {% for operario in operarios %}
+                    <option value="{{ operario.id }}">{{ operario.codigo }} - {{ operario.nombre }} {{ operario.apellido }}</option>
+                    {% endfor %}
+            </select>
+        </p>
+        <p>
+            <label for="signature-data">Firma del Operario:</label><br>
+            <canvas id="signature-pad" width="300" height="150" style="border: 1px solid #000;"></canvas>
+            <input type="hidden" id="signature-data" name="signature_data"><br>
+            <button type="button" id="clear-signature"><strong>Borrar Firma</strong></button>
+            <button type="submit"><strong>Asignar Herramienta</strong></button>
+        </p>
+    </form>
+    
+    
+    <script>
+        var canvas = document.getElementById('signature-pad');
+        var signatureData = document.getElementById('signature-data');
+        var clearButton = document.getElementById('clear-signature');
+        
+        if (canvas) {
+            var ctx = canvas.getContext('2d');
+            var drawing = false;
+
+            canvas.addEventListener('mousedown', function (event) {
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(event.offsetX, event.offsetY);
+            });
+
+            canvas.addEventListener('mousemove', function (event) {
+                if (drawing) {
+                    ctx.lineTo(event.offsetX, event.offsetY);
+                    ctx.stroke();
+                }
+            });
+
+            canvas.addEventListener('mouseup', function () {
+                drawing = false;
+                signatureData.value = canvas.toDataURL(); // Guarda la firma como imagen base64 en el input oculto
+            });
+
+            clearButton.addEventListener('click', function () {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                signatureData.value = ''; // Borra el valor del input oculto
+            });
+        }
+    </script>
+
+    {% endblock page_content %}
+</body>
+

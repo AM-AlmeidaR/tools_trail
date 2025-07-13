@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<body>
+    {% block page_title%}<h1>Tools Trail | Herramientas Disponibles</h1>{% endblock page_title%}
+    {% block page_content %}
+    
+        <table border="1">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Asignar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for herramienta in herramientas %}
+            <tr>
+                <td>{{ herramienta.codigo }}</td>
+                <td>{{ herramienta.tipo }}</td>
+                <td>{{ herramienta.marca }}</td>
+                <td>{{ herramienta.modelo }}</td>
+                <td>
+                    <a class="menu" href="{% url 'asignar_herramienta' %}"><strong>Asignar</strong></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endblock page_content %}
+   
+</body>
+

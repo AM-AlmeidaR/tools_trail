@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<body>
+{% block page_title%}
+    <h1>Tools Trail | Historial Asignación Herramientas</h1>
+{% endblock page_title%}    
+{% block page_content %}
+    
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Operario</th>
+            <th>Fecha de Asignación</th>
+            <th>Fecha de Devolución</th>
+        </tr>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro.herramienta.codigo }}</td>
+                <td>{{ registro.herramienta.tipo }}</td>
+                <td>{{ registro.operario.nombre }} {{ registro.operario.apellido }}</td>
+                <td>{{ registro.fecha_asignacion }}</td>
+                <td>{{ registro.fecha_devolucion|default:"Aún no devuelta" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock page_content %}
+   
+</body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Herramienta</title>
+    <script src="{% static 'js/signature_pad.min.js' %}"></script>
+</head>
+<body>
+    <h1>Asignar Herramienta</h1>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li style="color: {{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="codigo_herramienta">Código de la Herramienta:</label>
+        <input type="text" name="codigo_herramienta" id="codigo_herramienta" required>
+        
+        <label for="operario_id">Operario:</label>
+        <select name="operario_id" id="operario_id" required>
+            <option value="" disabled selected>Seleccione un operario</option>
+            {% for operario in operarios %}
+                <option value="{{ operario.id }}">{{ operario.codigo }} - {{ operario.nombre }} {{ operario.apellido }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="firma">Firma:</label>
+        <canvas id="signature-pad" width="400" height="200" style="border: 1px solid #000;"></canvas>
+        <button type="button" id="clear">Limpiar</button>
+        <input type="hidden" name="firma" id="firma">
+
+        <button type="submit">Asignar Herramienta</button>
+    </form>
+
+    <script>
+        const canvas = document.getElementById('signature-pad');
+        const signaturePad = new SignaturePad(canvas);
+        const clearButton = document.getElementById('clear');
+        const firmaInput = document.getElementById('firma');
+
+        clearButton.addEventListener('click', () => signaturePad.clear());
+
+        document.querySelector('form').addEventListener('submit', (e) => {
+            if (!signaturePad.isEmpty()) {
+                firmaInput.value = signaturePad.toDataURL();
+            } else {
+                alert('Por favor, firme antes de enviar.');
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+# para visualizar la firma solo hay que agregar el siguiente código a la plantilla html que necesitamos:
+
+<img src="{{ registro.firma.url }}" alt="Firma del Operario">

@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+<body>
+    {% block page_title%}<h1>Tools Trail | Herramientas Asignadas</h1>{% endblock page_title%}
+    {% block page_content %}
+    
+        <table border="1" cellspacing="0" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Operario</th>
+                <th>Fecha de Asignación</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro.herramienta.codigo }}</td>
+                <td>{{ registro.herramienta.tipo }}</td>
+                <td>{{ registro.herramienta.marca }}</td>
+                <td>{{ registro.herramienta.modelo }}</td>
+                <td>{{ registro.operario.nombre }} {{ registro.operario.apellido }}</td>
+                <td>{{ registro.fecha_asignacion }}</td>
+                <td>
+                    <!-- Botón para devolver herramienta -->
+                   <form action="{% url 'devolver_herramienta' registro.herramienta.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit"><strong>Devolver</strong></button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock page_content %}
+   
+</body>
+</html>

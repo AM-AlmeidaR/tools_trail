@@ -1,0 +1,216 @@
+html {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    min-width: 582px;
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+img {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 5px;
+    max-width: 150px;
+}
+
+li {
+    align-items: center;
+    gap: 10px;
+    background-color: #03214d;
+    color: white;
+    border-radius: 5px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu {
+    color: white;
+    text-decoration: none;
+}
+
+.menu:hover {
+    color: yellow;
+    background-color: blueviolet;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+footer {
+    border: 1px solid #03214d;
+    padding: 1em;
+    background-color: #f1f1f1;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    gap: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    overflow: scroll;
+}
+
+th,
+td,
+tr {
+    border: 1px solid #03214d;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #03214d;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
+
+button {
+    background-color: #03214d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 4px;
+    color: white;
+}
+
+button:hover {
+    color: yellow;
+    background-color: blueviolet;
+}
+
+header {
+    border: 1px solid #03214d;
+    padding: 1em;
+    background-color: #f1f1f1;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+article {
+    padding: 20px;
+    text-align: justify;
+}
+
+.menu {
+    background-color: #03214d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+
+header nav ul {
+    padding: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.submit {
+    background-color: #03214d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 4px;
+    color: white;
+}
+
+.submit:hover {
+    color: yellow;
+    background-color: blueviolet;
+}
+
+.footer-text {
+    text-align: center;
+    width: 80%;
+}
+
+.img_footer {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 5px;
+    max-width: 150px;
+}
+
+form {
+    margin: 20px;
+}
+
+.enlace:hover {
+    color: yellow;
+    background-color: blueviolet;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+button {
+    margin-bottom: 10px;
+}
+
+canvas {
+    border: 1px solid #000;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    background-color: #fff;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    box-shadow: 10 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    position: sticky;
+}
+

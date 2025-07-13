@@ -1,0 +1,36 @@
+>>> herramientas_asignadas.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Herramientas Asignadas</title>
+</head>
+<body>
+    <h1>Herramientas Asignadas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Código de Herramienta</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Operario</th>
+                <th>Fecha de Asignación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro.herramienta.codigo }}</td>
+                <td>{{ registro.herramienta.tipo }}</td>
+                <td>{{ registro.herramienta.marca }}</td>
+                <td>{{ registro.herramienta.modelo }}</td>
+                <td>{{ registro.operario.nombre }} {{ registro.operario.apellido }}</td>
+                <td>{{ registro.fecha_asignacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

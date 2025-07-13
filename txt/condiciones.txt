@@ -1,0 +1,16 @@
+pregunta en la AMA respecto a la funcion en mi views.py
+
+Estoy haciendo una app (reg_herr) con Django de control de herramientas (las herramientas se entregan a los operarios, ellos las usan y las devuelven) tengo que asignar una o varias herramientas a los operarios, y cuando terminen de usarlas, desasignarlas para que estén disponibles y se puedan asignar a otro operario. Se debe poder ver y guardar en un registro (tabla) la fecha y hora de la asignación y la devolución de la herramienta. Un operario puede tener varias herramientas, las herramientas pueden estar asignadas a un solo operario. Debo poder ver que determinada herramienta la está usando un operario especifico, asi como cuantas y cuales herramientas están siendo usadas por un operario, dando el codigo del operario. Los atributos de los operarios son: codigo, nombre y apellido. Los atributos de las herramientas son: codigo, tipo, marca, modelo, numero de serie y si está o no disponible.
+
+7. Mejoras Futuros
+Lista de herramientas asignadas y disponibles:
+
+Implementar vistas que muestren herramientas asignadas y su operario.
+Mostrar herramientas disponibles para asignar.
+Validaciones avanzadas:
+
+Impedir asignar herramientas duplicadas al mismo operario.
+Historial detallado de asignaciones y devoluciones.
+Interfaz moderna:
+
+Usar un framework CSS como Bootstrap o Tailwind para mejorar el diseño.

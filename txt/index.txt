@@ -1,0 +1,39 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1>&copy; Tools Trail</h1>
+	    <h2>Control de Herramientas</h2>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'lista_operarios' %}">Lista de Operarios</a></li>
+                <li><a href="{% url 'detalle_operario' %}">Detalle del Operario</a></li>
+                <li><a href="{% url 'lista_herramientas' %}">Lista de Herramientas</a></li>
+                <li><a href="{% url 'detalle_herramienta' herramienta_id=pk %}">Detalle de Herramienta</a></li> <!-- Ejemplo de ruta con parámetro -->
+            </ul>
+        </nav>
+    </header>
+	  
+    <!-- Contenido principal -->
+    <main>
+        {% block content %}
+        <!-- Aquí va el contenido de cada página específica -->
+	 {% endblock %}
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; {{ year }} ToolsTrail. Todos los derechos reservados. Propiedad de AM_AlmeidaR.</p>
+        <p>Contacto: <a href="mailto:soporte@toolstrail.com">soporte@toolstrail.com</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+<body>
+    <h3>{% block page_title%}Tools Trail | Devolver Herramienta{% endblock page_title%}</h3>
+    {% block page_content %}
+        <form method="post">
+    {% csrf_token %}
+    <p>¿Confirmas la devolución de esta herramienta?</p>
+    <button type="submit">Confirmar</button>
+    </form>
+    {% endblock page_content %}
+</body>

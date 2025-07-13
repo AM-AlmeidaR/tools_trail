@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title%}
+    <h1>Tools Trail | Inicio</h1>
+{% endblock page_title%}    
+
+{% block page_content %}
+<section>
+    <article>
+        <p>¡Bienvenido a <strong>Tools Trail</strong>! ¡La aplicación web de <em>Control de Herramientas!</em></p>
+        <p> Con la utilización de Tools Trail podrá gestionar las herramientas de su empresa de manera <strong>sencilla y eficiente.</strong> Podrá informarse en todo momento que operario tiene la <a class="enlace" href="{% url 'herramientas_asignadas' %}">herramienta asignada</a> y cuales <a class="enlace" href="{% url 'herramientas_disponibles' %}">herramientas están disponibles</a>. Puede consultar también un <a class="enlace" href="{% url 'historial' %}"> historico</a> con todos los movimientos de las mismas donde se indica que herramienta, que operario, la fecha y hora exactas de cuando cada herramienta fue retirada, cuando fue devuelta, o si está aún en uso. Y por supuesto, no se puede asignar una misma herramienta a 2 operarios distintos al mismo tiempo, y si se pueden asignar varias herramientas a un mismo operario.</p>
+    </article>
+</section>
+{% endblock page_content %}

@@ -1,0 +1,6 @@
+<h1>Devolver Herramienta: {{ herramienta.codigo }}</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>¿Confirmas la devolución de esta herramienta?</p>
+    <button type="submit">Confirmar</button>
+</form>

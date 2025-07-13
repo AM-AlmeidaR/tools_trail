@@ -1,0 +1,9 @@
+>>> agregar a urls.py
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('herramientas/asignadas/', views.herramientas_asignadas, name='herramientas_asignadas'),
+    path('herramientas/disponibles/', views.herramientas_disponibles, name='herramientas_disponibles'),
+]
